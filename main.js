@@ -5,15 +5,19 @@ form.addEventListener("submit", function (e) {
   const inputPeso = e.target.querySelector("#peso");
   const inputAltura = e.target.querySelector("#altura");
 
-  const peso = Number(inputPeso.value);
-  const altura = Number(inputAltura.value);
+  const peso = inputPeso.value.replace(",", ".");
+  const altura = inputAltura.value.replace(",", ".");
+
+  const pesoNumero = parseFloat(peso);
+  const alturaNumero = parseFloat(altura);
+
 
   if (!peso) {
     setResultado("Peso invalido", false);
     return;
   }
   if (!altura) {
-    setResultado("Altura invalido", false);
+    setResultado("Altura invalida", false);
     return;
   }
 
